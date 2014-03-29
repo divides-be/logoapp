@@ -1,0 +1,1009 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body style="background:#000;">
+    <script type="text/javascript" src="caat-min.js"></script>
+    <script type="text/javascript">
+        (function() {
+
+            /**
+             * This function will be called to let you define new scenes that will be
+             * shown after the splash screen.
+             * @param director
+             */
+		 	var director;
+			var scnCategory;
+        	var scnSubCategory;
+			var scn_q_slide;
+			
+			/* Game data */
+			var questionData={"cat":[	{"name":"hoorwoorden","subcat":[	{"name":"aai/ooi/oei","level":[	{"name":"Eenvoudig","question":[	{"question":"n_","solution":"aai","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"kr_","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"s_","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"fr_","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"dr_","solution":"aai","a1":"ooi","a2":"oei","a3":"aai","image":"draaimolen"}	,	
+				{"question":"zw_","solution":"aai","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"w_","solution":"aai","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"h_en","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"kr_en","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"s_e","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"fr_e","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"dr_t","solution":"aai","a1":"oei","a2":"ooi","a3":"aai","image":"draaimolen"}	,	
+				{"question":"dr_en","solution":"aai","a1":"aai","a2":"ooi","a3":"oei","image":"draaimolen"}	,	
+				{"question":"zw_t","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"zw_en","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"w_t","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"w_en","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"n_en","solution":"aai","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"d_","solution":"ooi","a1":"aai","a2":"ooi","a3":"oei","image":"ijsblokjes"}	,	
+				{"question":"k_","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"d_en","solution":"ooi","a1":"oei","a2":"aai","a3":"ooi","image":"ijsblokjes"}	,	
+				{"question":"k_en","solution":"ooi","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"str_","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"d_t","solution":"ooi","a1":"oei","a2":"ooi","a3":"aai","image":"ijsblokjes"}	,	
+				{"question":"str_en","solution":"ooi","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"str_t","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"pl_","solution":"ooi","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"pl_t","solution":"ooi","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"pl_en","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"g_","solution":"ooi","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"g_t","solution":"ooi","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"g_en","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"l_en","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"l_t","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"st_","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"st_en","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"st_t","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"r_","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"r_en","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"r_t","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"f_","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"kn_","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"kn_t","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"kn_en","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"vl_t","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"bl_","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"bl_t","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"bl_en","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	]}	,
+			{"name":"Moeilijk","question":[	{"question":"zw_licht","solution":"aai","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"papeg_","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"uitzw_en","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"dr_deur","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"gekr_","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"verdr_en","solution":"aai","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"law_","solution":"aai","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"dr_tol","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"grasm_er","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"verfr_en","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"n_les","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"n_doos","solution":"aai","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"verdr_d","solution":"aai","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"kr_ennest","solution":"aai","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"papeg_en","solution":"aai","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"oers_","solution":"aai","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"m_ste","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"h_vork","solution":"ooi","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"ontd_en","solution":"ooi","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"str_zout","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"bloedm_","solution":"ooi","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"h_koorts","solution":"ooi","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"pl_rok","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"h_berg","solution":"ooi","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"eierd_er","solution":"ooi","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"leeuwenk_","solution":"ooi","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"toern_","solution":"ooi","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"onverm_baar","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"m_zaam","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"vl_stof","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"geb_d","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"r_boot","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"handb_en","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"opgr_en","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"verschr_en","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"verkn_en","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"bem_en","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"openbl_en","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"gr_wormen","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"kn_boel","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"bl_tijd","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"bespr_en","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"r_spaan","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	,	
+				{"question":"k_enstal","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"begr_en","solution":"oei","a1":"oei","a2":"aai","a3":"ooi"}	,	
+				{"question":"m_lijk","solution":"oei","a1":"aai","a2":"oei","a3":"ooi"}	,	
+				{"question":"gr_pijn","solution":"oei","a1":"ooi","a2":"oei","a3":"aai"}	,	
+				{"question":"gr_middel","solution":"oei","a1":"oei","a2":"ooi","a3":"aai"}	,	
+				{"question":"spr_ers","solution":"oei","a1":"aai","a2":"ooi","a3":"oei"}	]}	]},
+		{"name":"b/d","level":[	{"name":"Eenvoudig","question":[	{"question":"prent _ vraag","solution":"bak","a1":"pak","a2":"dak","a3":"bak"}	,	
+				{"question":"prent _ vraag","solution":"bal","a1":"dal","a2":"bal","a3":"pal"}	,	
+				{"question":"prent _ vraag","solution":"bar","a1":"dar","a2":"par","a3":"bar"}	,	
+				{"question":"prent _ vraag","solution":"bed","a1":"ped","a2":"bed","a3":"ded"}	,	
+				{"question":"prent _ vraag","solution":"bek","a1":"bek","a2":"pek","a3":"dek"}	,	
+				{"question":"prent _ vraag","solution":"bel","a1":"del","a2":"pel","a3":"bel"}	,	
+				{"question":"prent _ vraag","solution":"ben","a1":"ben","a2":"den","a3":"pen"}	,	
+				{"question":"prent _ vraag","solution":"bes","a1":"des","a2":"bes","a3":"pes"}	,	
+				{"question":"prent _ vraag","solution":"bij","a1":"dij","a2":"bij","a3":"pij"}	,	
+				{"question":"prent _ vraag","solution":"bil","a1":"bil","a2":"dil","a3":"pil"}	,	
+				{"question":"prent _ vraag","solution":"big","a1":"pig","a2":"dig","a3":"big"}	,	
+				{"question":"prent _ vraag","solution":"bok","a1":"bok","a2":"pok","a3":"dok"}	,	
+				{"question":"prent _ vraag","solution":"boe","a1":"doe","a2":"poe","a3":"boe"}	,	
+				{"question":"prent _ vraag","solution":"bol","a1":"pol","a2":"bol","a3":"dok"}	,	
+				{"question":"prent _ vraag","solution":"bom","a1":"bom","a2":"dom","a3":"pom"}	,	
+				{"question":"prent _ vraag","solution":"bot","a1":"dot","a2":"pot","a3":"bot"}	,	
+				{"question":"prent _ vraag","solution":"bos","a1":"pos","a2":"bos","a3":"dos"}	,	
+				{"question":"prent _ vraag","solution":"bus","a1":"bus","a2":"pus","a3":"dus"}	,	
+				{"question":"prent _ vraag","solution":"dak","a1":"dak","a2":"bak","a3":"pak"}	,	
+				{"question":"prent _ vraag","solution":"dal","a1":"bal","a2":"dal","a3":"pal"}	,	
+				{"question":"prent _ vraag","solution":"dam","a1":"pam","a2":"bam","a3":"dam"}	,	
+				{"question":"prent _ vraag","solution":"dan","a1":"pan","a2":"dan","a3":"ban"}	,	
+				{"question":"prent _ vraag","solution":"das","a1":"das","a2":"bas","a3":"pas"}	,	
+				{"question":"prent _ vraag","solution":"dat","a1":"bat","a2":"dat","a3":"pat"}	,	
+				{"question":"prent _ vraag","solution":"dek","a1":"dek","a2":"pek","a3":"bek"}	,	
+				{"question":"prent _ vraag","solution":"den","a1":"pen","a2":"ben","a3":"den"}	,	
+				{"question":"prent _ vraag","solution":"dij","a1":"bij","a2":"pij","a3":"dij"}	,	
+				{"question":"prent _ vraag","solution":"dik","a1":"dik","a2":"pik","a3":"bik"}	,	
+				{"question":"prent _ vraag","solution":"dit","a1":"pit","a2":"dit","a3":"bit"}	,	
+				{"question":"prent _ vraag","solution":"doe","a1":"doe","a2":"boe","a3":"poe"}	,	
+				{"question":"prent _ vraag","solution":"dof","a1":"pof","a2":"dof","a3":"bof"}	,	
+				{"question":"prent _ vraag","solution":"dok","a1":"pok","a2":"bok","a3":"dok"}	,	
+				{"question":"prent _ vraag","solution":"dol","a1":"dol","a2":"pol","a3":"bol"}	,	
+				{"question":"prent _ vraag","solution":"dom","a1":"pom","a2":"bom","a3":"dom"}	,	
+				{"question":"prent _ vraag","solution":"dun","a1":"bun","a2":"dun","a3":"pun"}	,	
+				{"question":"prent _ vraag","solution":"dus","a1":"dus","a2":"pus","a3":"bus"}	,	
+				{"question":"prent _ vraag","solution":"dut","a1":"but","a2":"put","a3":"dut"}	]}	]},
+		{"name":"eeuw/ieuw/uw","level":[	{"name":"Eenvoudig","question":[	{"question":"g_","solution":"eeuw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"m_","solution":"eeuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"l_","solution":"eeuw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"sn_","solution":"eeuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"spr_","solution":"eeuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"schr_","solution":"eeuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"g_t","solution":"eeuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"m_en","solution":"eeuw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"l_en","solution":"eeuw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"sn_en","solution":"eeuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"spr_en","solution":"eeuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"schr_t","solution":"eeuw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"g_en","solution":"eeuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"sn_t","solution":"eeuw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"schr_en","solution":"eeuw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"n_","solution":"ieuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"k_","solution":"ieuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"n_s","solution":"ieuw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"n_er","solution":"ieuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"n_jaar","solution":"ieuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"k_en","solution":"ieuw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"d_","solution":"uw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"sl_","solution":"uw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"_","solution":"uw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"h_","solution":"uw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"d_en","solution":"uw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"sl_e","solution":"uw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"h_en","solution":"uw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"d_t","solution":"uw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"zwal_","solution":"uw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"st_","solution":"uw","a1":"ieuw","a2":"uw","a3":"eeuw"}	]}	,
+			{"name":"Moeilijk","question":[	{"question":"l_in","solution":"eeuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"_enlang","solution":"eeuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"l_entemmer","solution":"eeuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"sn_ballen","solution":"eeuw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"sn_ruimer","solution":"eeuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"_ig","solution":"eeuw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"zeem_","solution":"eeuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"vern_en","solution":"ieuw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"n_bouw","solution":"ieuw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"n_slezer","solution":"ieuw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"n_sbericht","solution":"ieuw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"n_sgierig","solution":"ieuw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"splintern_","solution":"ieuw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"ben_d","solution":"ieuw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"h_elijk","solution":"uw","a1":"ieuw","a2":"eeuw","a3":"uw"}	,	
+				{"question":"schad_","solution":"uw","a1":"uw","a2":"eeuw","a3":"ieuw"}	,	
+				{"question":"zwal_en","solution":"uw","a1":"eeuw","a2":"uw","a3":"ieuw"}	,	
+				{"question":"zen_achtig","solution":"uw","a1":"ieuw","a2":"uw","a3":"eeuw"}	,	
+				{"question":"h_elijksfeest","solution":"uw","a1":"uw","a2":"ieuw","a3":"eeuw"}	,	
+				{"question":"waarsch_ing","solution":"uw","a1":"eeuw","a2":"ieuw","a3":"uw"}	,	
+				{"question":"wegd_en","solution":"uw","a1":"ieuw","a2":"eeuw","a3":"uw"}	]}	]}
+]},	{"name":"verlengingsregel","subcat":[	{"name":"b/p","level":[	{"name":"Eenvoudig","question":[	{"question":"groe_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"ri_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"kra_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"knoo_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"schro_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"gra_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"we_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"tra_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"schel_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"schu_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"zee_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"stree_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"he_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"snoe_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"po_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"clu_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"hul_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"hel_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"bi_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"jo_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"sla_ (baby)","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"sla_ (niet sterk)","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"grie_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"hoo_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"die_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"hes_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"heu_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"lam_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"ram_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"roe_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"soe_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"wi_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"sti_","solution":"p","a1":"b","a2":"p","a3":""}	]}	,
+			{"name":"Moeilijk","question":[	{"question":"zeekra_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"kra_sla","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"gra_jas","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"spinnenwe_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"tra_hal","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"handzee_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"eindstree_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"snoe_ketting","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"handpo_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"clu_huis","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"voetbalclu_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"rechterri_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"zeero_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"aanhe_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"visschu_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"e_","solution":"b","a1":"b","a2":"p","a3":""}	,	
+				{"question":"buikgrie_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"aanloo_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"verkoo_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"wetenscha_","solution":"p","a1":"b","a2":"p","a3":""}	,	
+				{"question":"erwtensoe_","solution":"p","a1":"b","a2":"p","a3":""}	]}	]},
+		{"name":"d/t","level":[	{"name":"Eenvoudig","question":[	{"question":"paar_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ten_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lui_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"helf_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"flui_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"pe_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"rui_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ban_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bran_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"een_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hu_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"man_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"be_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"soor_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vrien_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"plan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"han_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"moor_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kwaa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"straa_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"klan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"draa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ou_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ran_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"woor_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gas_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"wors_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"mon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"mark_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"goe_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bor_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"noor_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hoe_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"fees_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kis_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"poo_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bees_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"tan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lin_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"naal_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"taar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"poor_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hoof_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hem_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kas_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"broo_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"staar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ein_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"nes_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"schrif_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gees_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"plaa_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zwaar_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"spel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"maan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"doo_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lijs_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vuis_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ka_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"pun_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"wi_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ron_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"roo_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"po_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"na_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"buur_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zwar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"la_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"blon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gla_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"voe_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kaar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bloe_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kran_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"fou_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zwee_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"jeug_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ba_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zaa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"krij_","solution":"t","a1":"d","a2":"t","a3":""}	]}	,
+			{"name":"Moeilijk","question":[	{"question":"beperk_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"potloodpun_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"toestan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"beslui_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"eilan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"misdaa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kan_lijn","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vijan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gedich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"briefkaar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"rappor_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"avon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bloempo_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gezon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"onbeken_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lan_bouw","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"evenwich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"trompe_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"afstan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"oogs_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ein_streep","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"broo_mes","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ijskou_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"voorhoof_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"apar_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"straa_kind","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"straatkin_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"antwoor_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"orkes_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bouwlan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hoof_pijn","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"insec_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"schitteren_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"waslijs_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"volgen_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"verkeer_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ten_zeil","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"spannen_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"soldaa_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"beroem_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"apparaa_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"agen_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"olifan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"olifantenhui_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"scha_kist","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"schatkis_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gelui_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gelui_smuur","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"goe_koop","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"klopgees_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vliegvel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"opdrach_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"oerwou_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"piloo_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zeilboo_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"stoomboo_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"voorbeel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"standbeel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"doelpun_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"wedstrij_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"instrumen_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"fees_neus","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"leeftij_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kuns_werk","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"momen_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"monumen_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lie_je","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"sigare_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"schoolpoor_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ein_doel","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"groo_ste","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"angs_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vliegangs_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"noor_pool","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zui_pool","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"mee_lat","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"meetla_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"scho_wonde","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"invloe_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"plich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"leerplich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"rech_door","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"linkerkan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"opstan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"portre_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hoektan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"hoektan_","solution":"d ","a1":"d","a2":"t","a3":""}	,	
+				{"question":"bedroef_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gewich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"onbewoon_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"vrien_je","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"jach_hond","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"overkan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"weilan_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"diaman_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"nieuwsberich_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ondeugen_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"moeilijkhei_","solution":"d ","a1":"d","a2":"t","a3":""}	,	
+				{"question":"optimis_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"han_schoen","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"taar_doos","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"gangpa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"voe_bal","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"onbewaak_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"laa_tijdig","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"han_leiding","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"noo_uitgang","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zomerhoe_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"kleinkin_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"wijshei_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"nich_je","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"verjaardagsfees_je","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"han_tas","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"han_doek","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"superhel_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lentefees_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"ovenwan_","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"nach_waker","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"heldendaa_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"zwemba_","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"potloo_slijper","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"luch_haven","solution":"t","a1":"d","a2":"t","a3":""}	,	
+				{"question":"lan_kaart","solution":"d","a1":"d","a2":"t","a3":""}	,	
+				{"question":"wegenkaar_","solution":"t","a1":"d","a2":"t","a3":""}	]}	]}
+			]}]};
+			
+			
+			var questionSet;
+			var answerTextSize;
+			var textFormat;
+			var menuTextFormat;
+			var menuTextSize;
+			
+			
+            function createScenes(director) {
+				this.director=director;
+				
+				this.answerTextSize=Math.floor(director.height/10);
+				this.textFormat="bold " + this.answerTextSize + "px sans-serif";
+				this.menuTextSize=Math.floor(this.answerTextSize/3*2);
+				this.menuTextFormat=this.menuTextSize + "px sans-serif";
+				this.scnCategory=director.createScene();
+				this.scnCategory.setFillStyle('#000');
+				this.scnSubCategory=director.createScene();
+				this.scnSubCategory.setFillStyle('#000');
+ 
+				var catList = createCatList();
+				catList.setBounds(0,0,director.width,director.height)
+				this.scnCategory.addChild(catList);
+				
+				this.scn_q_slide = director.createScene();
+				scn_q_slide=this.scn_q_slide;
+				createQuestionScene_Slide();
+				
+				/* Star effect resource */
+				var starsImage = new CAAT.SpriteImage().
+            		initialize(director.getImage('stars'), 1,6 );
+				
+				
+
+				
+				
+				
+			/**
+			* LOAD QUESTION SET
+			**/
+			function createGameSet(catID,subCatID,levelID,count) {
+				var questionSet = new Array(count);
+				var questionCount=questionData.cat[catID].subcat[subCatID].level[levelID].question.length;
+				for(i=0;i<count;i++) {
+					questionSet[i]=questionData.cat[catID].subcat[subCatID].level[levelID].question[(Math.random()*questionCount)>>0];
+					
+				}
+				this.questionSet=questionSet;
+				this.currentQuestionID=0;
+				loadQuestion_Slide(this.currentQuestionID);
+				showNextScene();
+			}
+			function loadQuestion_Slide(qID) {
+				var question = this.questionSet[qID].question;
+				var solution = this.questionSet[qID].solution;
+				var answer=new Array("","","");
+				answer[0]=this.questionSet[qID].a1;
+				answer[1]=this.questionSet[qID].a2;
+				answer[2]=this.questionSet[qID].a3;
+				
+				/* Image */
+				if(this.questionSet[qID].image!=null) {
+					this.bg.setBackgroundImage(director.getImage(this.questionSet[qID].image));
+				} else {
+					this.bg.setBackgroundImage('default');
+				}
+				
+				/* The question */
+				var startX=new Array(director.width/4,director.width/2,director.width/4*3);
+				var answerY=director.height/100*35;
+			
+				var answerTextSize=Math.floor(director.height/14);
+				var qSplit=question.split("_");
+
+				this.q1Text.
+					setText(qSplit[0]).
+					calcTextSize(director);
+				
+				this.solutionText.
+					setText(solution).
+					calcTextSize(director);		
+						
+				this.q2Text.
+					setText(qSplit[1]).
+					calcTextSize(director);					
+					
+				var totalQuestionWidth=this.q1Text.textWidth+this.solutionText.textWidth+this.q2Text.textWidth;
+				this.q1Text.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2),
+					director.height/10);
+				this.solutionText.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2+this.q1Text.textWidth),
+					director.height/10);
+				this.solutionIndicator.setBounds(this.solutionText.x,this.solutionText.y+this.solutionText.height/6*5,this.solutionText.width,this.solutionText.height/6);					
+				this.q2Text.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2+this.q1Text.textWidth+this.solutionText.textWidth),
+					director.height/10);
+														
+				
+				this.a1Text.getChildAt(0).
+					setText(answer[0]).
+					calcTextSize(director);
+				this.a1Text.setLocation(
+						startX[0]-this.a1Text.width/2,
+						answerY);
+				this.a2Text.getChildAt(0).
+					setText(answer[1]).
+					calcTextSize(director);
+				this.a2Text.setLocation(
+						startX[1]-this.a2Text.width/2,
+						answerY);
+				this.a3Text.getChildAt(0).
+					setText(answer[2]).
+					calcTextSize(director);
+				this.a3Text.setLocation(
+						startX[2]-this.a3Text.width/2,
+						answerY);	
+			}
+			var q1Text;
+			var q2Text;
+			var solutionText;
+			var solutionIndicator;
+			var a1Text;
+			var a2Text;
+			var a3Text;
+			var bg;
+			
+			var currentQuestionID;
+			
+			function createQuestionScene_Slide() {
+				/* Background */
+				var scale=1;
+				this.bg = new CAAT.Actor().
+				setBounds(0,0,director.width/2,director.height/2).
+				setBackgroundImage(director.getImage('default'));
+				
+				scale=director.width/this.bg.width;
+				
+				this.bg.addBehavior(new CAAT.ScaleBehavior().
+                setFrameTime(0,0).
+                setValues( scale,scale, scale,scale, 0, 0));
+				var xPos = director.width-this.bg.width*scale ;
+				var yPos = director.height- this.bg.height*scale;
+				this.bg.setPosition(xPos,yPos);
+				scn_q_slide.addChild(this.bg);
+				
+
+				scn_q_slide.addChild(createBackButton());
+				
+				/* The question */
+				var question="Ik _ (worden) daar zo moe van.";
+				var solution="word";
+				var answer=new Array("wordt","word","wort");
+				
+				var startX=new Array(director.width/4,director.width/2,director.width/4*3);
+				var answerY=director.height/100*35;
+			
+				var answerTextSize=this.answerTextSize;
+				var textFormat=this.textFormat;
+
+
+				var qSplit=question.split("_");
+
+				this.q1Text = new CAAT.TextActor().
+					setFont(textFormat).
+					setText(qSplit[0]).
+					setTextAlign("left").
+					setOutline(true).
+					setLineWidth(2).
+					setOutlineColor('#fff').
+					setTextFillStyle('rgb(0,0,0)').calcTextSize(director);
+				
+				
+				this.solutionText = new CAAT.TextActor().
+					setFont(textFormat).
+					setText(solution).
+					setTextAlign("left").
+					setOutline(true).
+					setLineWidth(2).
+					setOutlineColor('#fff').
+					setTextFillStyle('rgb(200,200,200)').calcTextSize(director).
+					setVisible(false);			
+				
+				this.solutionIndicator = new CAAT.Actor().
+					setFillStyle('#000').setAlpha(0.2);
+						
+				this.q2Text = new CAAT.TextActor().
+					setFont(textFormat).
+					setText(qSplit[1]).
+					setTextAlign("left").
+					setOutline(true).
+					setLineWidth(2).
+					setOutlineColor('#fff').
+					setTextFillStyle('rgb(0,0,0)').calcTextSize(director);					
+					
+				var totalQuestionWidth=this.q1Text.textWidth+this.solutionText.textWidth+this.q2Text.textWidth;
+				this.q1Text.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2),
+					director.height/10);
+				this.solutionText.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2+this.q1Text.textWidth),
+					director.height/10);
+				this.solutionIndicator.setBounds(this.solutionText.x,this.solutionText.y+this.solutionText.height,this.solutionText.width,5);					
+				this.q2Text.setLocation(
+					Math.floor((director.width - totalQuestionWidth)/2+this.q1Text.textWidth+this.solutionText.textWidth),
+					director.height/10);
+										
+				scn_q_slide.addChild(this.q1Text);
+				scn_q_slide.addChild(this.solutionText);
+				scn_q_slide.addChild(this.solutionIndicator);
+				scn_q_slide.addChild(this.q2Text);
+				
+				
+				this.a1Text = createAnswer(answer[0]);
+				this.a1Text.id="a-0";
+				this.a1Text.setLocation(
+						startX[0]-this.a1Text.width/2,
+						answerY);
+				this.a2Text = createAnswer(answer[1]);
+				this.a2Text.id="a-1";
+				this.a2Text.setLocation(
+						startX[1]-this.a2Text.width/2,
+						answerY);
+				this.a3Text = createAnswer(answer[2]);
+				this.a3Text.id="a-2";
+				this.a3Text.setLocation(
+						startX[2]-this.a3Text.width/2,
+						answerY);
+				scn_q_slide.addChild(this.a1Text);
+				scn_q_slide.addChild(this.a2Text);
+				scn_q_slide.addChild(this.a3Text);
+				
+				
+				function createAnswer(answerText) {
+					var answertext = new CAAT.TextActor().
+						setFont(textFormat).
+						setTextAlign("center").
+						setTextFillStyle('rgb(0,0,0)').
+						setOutline(true).
+						setLineWidth(2).
+						setOutlineColor('#fff').
+						setText(answerText).enableEvents(false).
+						calcTextSize(this.director);
+					answertext.setLocation(answertext.textWidth/2,0);
+					var circle = new CAAT.Foundation.UI.ShapeActor().
+						setLocation(answertext.textWidth/2-this.answerTextSize/4,answertext.textHeight+this.answerTextSize/4).
+						setSize(this.answerTextSize/2,this.answerTextSize/2).
+						setFillStyle('#fff').enableEvents(false).setLineWidth(2).
+						setStrokeStyle('#000').setAlpha(0.6);
+					var answerContainer = new CAAT.ActorContainer();
+						answerContainer.
+						setBounds(0,0,answertext.textWidth,answertext.textHeight+this.answerTextSize);
+					answerContainer.addChild(answertext);
+					answerContainer.addChild(circle);
+					answerContainer.enableDrag();
+					answerContainer.mouseUp = function(mouseEvent) {
+						if(hitTest(mouseEvent.source,getSolutionText()) && mouseEvent.source.getChildAt(0).text==getSolutionText().text) {
+								snapToSolution(mouseEvent.source);
+								effectCorrect();
+								setTimeout(showNextQuestion, 3000);							
+						} else {
+							if(hitTest(mouseEvent.source,getSolutionText())) {
+								/*wrong*/	
+								effectWrong(mouseEvent.source);
+							} else {
+								goHome(mouseEvent.source,250);
+							}
+						}
+					}
+					
+					
+					return answerContainer;
+				}
+				
+				function showNextQuestion() {
+					if(this.currentQuestionID<this.questionSet.length-1){
+						this.currentQuestionID++;
+						this.a1Text.getChildAt(0).setTextFillStyle('rgb(0,0,0)');
+						this.a2Text.getChildAt(0).setTextFillStyle('rgb(0,0,0)');
+						this.a3Text.getChildAt(0).setTextFillStyle('rgb(0,0,0)');
+						goHome(this.a1Text,0);
+						goHome(this.a2Text,0);
+						goHome(this.a3Text,0);
+						loadQuestion_Slide(this.currentQuestionID);	
+					}
+					else {
+						showPrevScene();	
+					}
+				}
+				
+				/* Object helper functions */
+				function getSolutionText() { return this.solutionText; }
+				
+				
+				/* Drop tests and actions */
+				function hitTest(obj,target) {
+					/* verschil tussen x en en tussen breedtes vergelijken */
+					return ((target.x-obj.x<obj.width && obj.x<(target.x+target.width)) &&
+							(target.y-obj.y<obj.height && obj.y<(target.y+target.height)));
+				}
+				function snapToSolution(answer) {
+					answer.moveTo(this.solutionText.x-(answer.width-this.solutionText.width)/2, this.solutionText.y, 100);
+				}
+				function goHome(answerText,duration) {
+					var nr = answerText.id.split('-')[1];
+					answerText.moveTo(startX[nr]-answerText.width/2,answerY,duration);
+				}
+				
+				/* Answer effects */
+				function effectWrong(answer) {
+					var id=answer.id.split('-')[1];
+					var thePath = new CAAT.LinearPath().
+								setInitialPosition(answer.x,answer.y).
+								setFinalPosition(startX[id]-answer.width/2,answerY);
+					answer.getChildAt(0).setTextFillStyle('rgb(200,0,0)');
+					answer.addBehavior(
+							new CAAT.ScaleBehavior().
+							setFrameTime(scn_q_slide.time, 500).
+							setValues( 1,5, 1,5 ).
+							setInterpolator(
+							new CAAT.Interpolator().createExponentialInInterpolator(
+							3,
+							false)
+							)
+						).
+						addBehavior(
+							
+							new CAAT.PathBehavior().
+							setPath(thePath).
+							setFrameTime(scn_q_slide.time+500, 100)
+						).
+						addBehavior(
+							new CAAT.ScaleBehavior().
+							setFrameTime(scn_q_slide.time+600, 500).
+							setValues( 5,1, 5,1 ).
+							setInterpolator(
+							new CAAT.Interpolator().createExponentialInInterpolator(
+							3,
+							false)
+							)
+						);
+						answer.getChildAt(0).addBehavior(
+							new CAAT.AlphaBehavior().
+							setFrameTime(scn_q_slide.time, 500).
+							setValues( 1, 0 )
+						).addBehavior(
+							new CAAT.AlphaBehavior().
+							setFrameTime(scn_q_slide.time+600, 500).
+							setValues( 0, 1 )
+						);
+						/*circle*/
+						var circleAlpha=answer.getChildAt(1).alpha;
+						answer.getChildAt(1).addBehavior(
+							new CAAT.AlphaBehavior().
+							setFrameTime(scn_q_slide.time, 500).
+							setValues( circleAlpha, 0 )
+						).addBehavior(
+							new CAAT.AlphaBehavior().
+							setFrameTime(scn_q_slide.time+600, 500).
+							setValues( 0, circleAlpha )
+						);
+				}
+				
+				function effectCorrect() {
+					var widthPercent=director.width/100;
+					var yVariance=director.height/25;
+					for(i=0;i<100;i++) {
+						createStar(widthPercent*i,this.solutionText.y+this.solutionText.height+(Math.random()*yVariance),i*4);
+					}
+				}
+				function createStar(x,y,delay) {
+					var T=1500;
+					var actorStar= new CAAT.Actor().
+					// set background image to be a reference of a SpriteImage instance
+					// and set actor's size equal to a SpriteImage's subimage size
+						setBackgroundImage(
+							starsImage.getRef(), true ).
+					// set background as a random SpriteImage's subimage.
+						setSpriteIndex( (Math.random()*6)>>0 ).
+					// center the actor on mouse position
+						centerOn( x, y).
+					// when the actor expires, remove in from the director
+						setDiscardable(true).
+					// avoid mouse event handling.
+						enableEvents(false).
+					// make this actor last to T milliseconds (1000)
+						setFrameTime(scn_q_slide.time+delay, T).
+					// add a scaling behavior
+						addBehavior(
+							new CAAT.ScaleBehavior().
+								setFrameTime(scn_q_slide.time+delay, T).
+								setValues( 1,5, 1,5 ).
+								setInterpolator(
+									new CAAT.Interpolator().createExponentialInInterpolator(
+										3,
+										false)
+								)
+						).
+					// add an alpha behavior so the actor takes 1000 ms to fade out to zero alpha
+						addBehavior(
+							new CAAT.AlphaBehavior().
+								setFrameTime(scn_q_slide.time+delay, T).
+								setValues( 1, 0 ) );
+			 
+					// add the actor.
+					scn_q_slide.addChild(actorStar);
+				}
+			}
+	
+			/* Create objects */
+			function createBackButton() {				
+				var btnBack=new CAAT.Actor();
+				btnBack.setFillStyle('#aaf').setBounds(10,10,60,60).
+				setBackgroundImage(director.getImage('back'));
+				btnBack.mouseUp=function(e) {
+					showPrevScene();
+				   };
+				return btnBack;
+			}
+			
+			
+			/**
+			* MENU STRUCTURE
+			**/
+			function createMenuItem(itemText) {
+				var menuItem = new CAAT.TextActor().
+					setFont(this.menuTextFormat).
+					setTextFillStyle('#fff').
+					setText(itemText).enableEvents(false).
+					calcTextSize(this.director).setLocation(5,5);
+				var itemContainer = new CAAT.ActorContainer();
+				itemContainer.
+					setBounds(0,0,this.director.width*0.8,menuItem.textHeight+10).
+					setFillStyle('#80f');
+				itemContainer.addChild(menuItem);
+				return itemContainer;
+			}
+			
+			function createCatList() {
+				var cont = new CAAT.ActorContainer();
+				for(var i=0;i<questionData.cat.length;i++) {
+					var text = createMenuItem(questionData.cat[i].name);
+					text.
+					setLocation(this.director.width*0.1,70+i*(text.height+5));
+					text.id="cat-"+i;
+					text.mouseUp=function(e) {
+						showSubCatList(e.source.id.split('-')[1]);
+					};
+					cont.addChild(text);
+				}
+				return cont;
+			}
+			function showSubCatList(cat) {
+				/*this.subCatScene=new CAAT.Foundation.Scene();*/
+				var subCatList = createSubCatList(cat);
+					subCatList.setBounds(0,0,this.director.width,this.director.height);
+					this.scnSubCategory.emptyChildren();
+					this.scnSubCategory.addChild(subCatList);
+					showNextScene();
+		
+			}
+			function createSubCatList(cat) {
+				var cont = new CAAT.ActorContainer();
+				for(var i=0;i<questionData.cat[cat].subcat.length;i++) {
+					var text = createMenuItem(questionData.cat[cat].subcat[i].name);
+					text.
+					setLocation(this.director.width*0.1,70+i*(text.height+5));
+					text.id="subcat-"+cat+"-"+i;
+					text.mouseUp=function(e) {
+						createGameSet(e.source.id.split('-')[1],e.source.id.split('-')[2],0,10);
+						
+					};
+					cont.addChild(text);
+				}
+
+				cont.addChild(createBackButton());
+				return cont;
+			}
+			function showPrevScene() {
+				this.director.switchToPrevScene( 500,
+					true,
+					true);
+			}
+			function showNextScene() {
+				this.director.switchToNextScene( 500,
+					true,
+					true);
+			}
+				
+				
+				
+				
+
+            };
+
+            /**
+             * Startup it all up when the document is ready.
+             * Change for your favorite frameworks initialization code.
+             */
+            window.addEventListener(
+                    'load',
+                    function() {
+                        
+											
+						
+						
+						CAAT.Module.Initialization.Template.init(
+                            /* canvas will be 800x600 pixels */
+                                1280, 768,
+
+                            /* and will be added to the end of document. set an id of a canvas or div element */
+                                undefined,
+
+                            /*
+                             load these images and set them up for non splash scenes.
+                             image elements must be of the form:
+                             {id:'<unique string id>',    url:'<url to image>'}
+
+                             No images can be set too.
+                             */
+                                [ 	{id:'stars',    url:'stars.png'},{id:'back',    url:'back.png'},
+									{id:'default',     url:'images/default.png'},
+									{id:'draaimolen',     url:'images/draaimolen.png'},
+									{id:'ijsblokjes',     url:'images/ijsblokjes.png'}
+								],
+
+                             /*
+                                onEndSplash callback function.
+                                Create your scenes on this method.
+                              */
+                             createScenes);
+                    },
+                    false);
+        })();
+    </script>
+</body>
+</html>
